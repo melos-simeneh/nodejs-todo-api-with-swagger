@@ -44,7 +44,9 @@ const deleteTodo = (req, res) => {
     return res.status(404).json({ message: "Todo not found" });
   }
   todos.splice(todoIndex, 1);
-  res.status(204).send();
+  res.status(200).send({
+    message: `Todo with id ${req.params.id} deleted.`,
+  });
 };
 
 module.exports = {
